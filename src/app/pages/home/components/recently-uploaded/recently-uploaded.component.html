@@ -1,0 +1,77 @@
+<section>
+  <ng-container *ngIf="isError">
+    <h3>Algo salio mal</h3>
+  </ng-container>
+
+  <ng-container *ngIf="isLoading; else success">
+    <div class="h-[500px] bg-gray-3"></div>
+  </ng-container>
+
+  <ng-template #success>
+    <ng-container *ngIf="firstRecently">
+      <div class="relative">
+        <img
+          height="500"
+          class="h-[500px] w-full object-cover"
+          [src]="firstRecently.banner_image"
+        />
+
+        <span
+          class="
+            absolute
+            overlay-top
+            top-0
+            h-[130px]
+            w-full
+            pointer-events-none
+          "
+        ></span>
+        <span
+          class="absolute overlay top-0 h-full w-full pointer-events-none"
+        ></span>
+        <span
+          class="
+            absolute
+            overlay-bottom
+            bottom-0
+            h-[100px]
+            w-full
+            -rotate-[180deg]
+            pointer-events-none
+          "
+        ></span>
+
+        <div class="absolute top-[100px] w-full">
+          <div class="container">
+            <div class="max-w-lg">
+              <h1 class="text-5xl text-contrast-textHi">
+                {{ firstRecently.name }}
+              </h1>
+              <p class="text-contrast-textLow mt-5 line-clamp-3">
+                {{ firstRecently.synopsis }}
+              </p>
+              <div class="mt-7">
+                <button class="btn btn-brand mr-3">Ver ahora</button>
+                <button class="btn btn-outline">Añadir a lista</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container -mt-[80px]">
+        <swiper [slidesPerView]="5" [spaceBetween]="20">
+          <ng-template swiperSlide *ngFor="let item of data?.items">
+            <a routerLink="/serie">
+              <serie-card
+                [img]="item.thumbnail"
+                [title]="item.name"
+                [body]="item.genders.join(', ')"
+              ></serie-card>
+            </a>
+          </ng-template>
+        </swiper>
+      </div>
+    </ng-container>
+  </ng-template>
+</section>

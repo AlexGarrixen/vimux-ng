@@ -1,0 +1,28 @@
+@tailwind components;
+
+@layer components {
+  .btn {
+    @apply h-10 px-4 inline-flex items-center justify-center rounded-md cursor-pointer
+    bg-gray-6 shadow-border shadow-gray-6 hover:bg-gray-7 font-bold;
+  }
+
+  .btn:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  .btn-sm {
+    @apply h-8 px-3;
+  }
+
+  .btn-outline {
+    @apply text-contrast-textHi shadow-border shadow-gray-6 bg-transparent hover:bg-gray-6/[0.16];
+  }
+
+  .btn-brand {
+    @apply bg-brand text-white shadow-brand hover:bg-brand-10 hover:shadow-brand-10;
+  }
+
+  .btn-outline-brand {
+    @apply shadow-brand hover:bg-brand/[0.16];
+  }
+}

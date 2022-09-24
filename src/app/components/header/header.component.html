@@ -1,0 +1,22 @@
+<header class="flex justify-between items-center px-6 h-16">
+  <svg-logo class="text-[40px]"></svg-logo>
+  <span class="inline-block h-8 w-[1px] bg-gray-3 mx-6"></span>
+  <nav class="flex flex-1 justify-between">
+    <ul class="grid grid-flow-col gap-6 items-center">
+      <ng-container *ngFor="let link of links">
+        <li>
+          <a
+            [routerLink]="[link.href]"
+            class="text-contrast-textLow"
+            routerLinkActive="text-white"
+            >{{ link.label }}</a
+          >
+        </li>
+      </ng-container>
+    </ul>
+    <div>
+      <button class="btn btn-outline mr-3">Ingresar</button>
+      <button class="btn">Registrar</button>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,32 @@
+<section class="my-16">
+  <div class="container">
+    <ng-container *ngIf="isError">
+      <h2>Se produjo un error</h2>
+    </ng-container>
+
+    <ng-container *ngIf="isLoading; else success">
+      <swiper [slidesPerView]="4" [spaceBetween]="20">
+        <ng-template swiperSlide *ngFor="let item of skeletonList">
+          <article class="aspect-video bg-gray-3"></article>
+        </ng-template>
+      </swiper>
+    </ng-container>
+
+    <ng-template #success>
+      <h2 class="text-xl text-contrast-textHi">Ultimos Episodios</h2>
+      <p class="text-contrast-textLow mt-1 mb-4">Los episodios mas recientes</p>
+      <swiper [slidesPerView]="4" [spaceBetween]="20">
+        <ng-template swiperSlide *ngFor="let item of data?.items">
+          <a routerLink="/serie">
+            <serie-card
+              [img]="item.thumbnail"
+              [title]="item.name"
+              [body]="item.serie_id.name"
+              aspectRatio="rectangle"
+            ></serie-card>
+          </a>
+        </ng-template>
+      </swiper>
+    </ng-template>
+  </div>
+</section>

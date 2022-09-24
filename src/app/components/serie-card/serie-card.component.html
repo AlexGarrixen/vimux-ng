@@ -1,0 +1,23 @@
+<article
+  class="
+    bg-gray-4
+    border-b-[4px] border-b-gray-5
+    hover:border-b-brand
+    rounded-md
+    transition-[border-color]
+  "
+>
+  <div
+    class="bg-gray-3 rounded-md overflow-hidden"
+    [ngClass]="{
+      'aspect-square': aspectRatio === 'square',
+      'aspect-video': aspectRatio === 'rectangle'
+    }"
+  >
+    <img class="h-full w-full bg-gray-3 object-cover" [src]="img" />
+  </div>
+  <div class="p-4">
+    <h3 class="text-base text-contrast-textHi line-clamp-1">{{ title }}</h3>
+    <p class="text-sm text-contrast-textLow line-clamp-1">{{ body }}</p>
+  </div>
+</article>

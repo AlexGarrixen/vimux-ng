@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gray1: 22 22 22;
+    --gray2: 28 28 28;
+    --gray3: 35 35 35;
+    --gray4: 40 40 40;
+    --gray5: 46 46 46;
+    --gray6: 52 52 52;
+    --gray7: 62 62 62;
+    --gray8: 80 80 80;
+    --gray9: 112 112 112;
+    --gray10: 126 126 126;
+    --gray11: 160 160 160;
+    --gray12: 237 237 237;
+
+    --brand1: 15 23 32;
+    --brand2: 15 27 45;
+    --brand3: 16 36 62;
+    --brand4: 16 42 76;
+    --brand5: 15 48 88;
+    --brand6: 13 56 104;
+    --brand7: 10 68 129;
+    --brand8: 9 84 165;
+    --brand9: 0 145 255;
+    --brand10: 54 158 255;
+    --brand11: 82 169 255;
+    --brand12: 235 246 255;
+  }
+
+  html,
+  body {
+    @apply font-base bg-contrast-fillHi text-contrast-textHi;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h4,
+  h6 {
+    @apply font-bold;
+  }
+}
+
+@import "./components/button";

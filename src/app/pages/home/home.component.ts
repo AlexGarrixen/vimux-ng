@@ -1,0 +1,80 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styles: [
+    `
+      .overlay {
+        background: linear-gradient(
+          90deg,
+          rgb(var(--gray1)) 0%,
+          rgb(var(--gray1) / 0.987259) 18.7%,
+          rgb(var(--gray1) / 0.951407) 34.9%,
+          rgb(var(--gray1) / 0.896) 48.8%,
+          rgb(var(--gray1) / 0.824593) 60.56%,
+          rgb(var(--gray1) / 0.740741) 70.37%,
+          rgb(var(--gray1) / 0.648) 78.4%,
+          rgb(var(--gray1) / 0.549926) 84.83%,
+          rgb(var(--gray1) / 0.450074) 89.84%,
+          rgb(var(--gray1) / 0.352) 93.6%,
+          rgb(var(--gray1) / 0.259259) 96.3%,
+          rgb(var(--gray1) / 0.175407) 98.1%,
+          rgb(var(--gray1) / 0.104) 99.2%,
+          rgb(var(--gray1) / 0.0485926) 99.76%,
+          rgb(var(--gray1) / 0.0127407) 99.97%,
+          rgb(var(--gray1) / 0) 100%
+        );
+      }
+
+      .overlay-top {
+        background: linear-gradient(
+          180deg,
+          rgb(var(--gray1)) 0%,
+          rgb(var(--gray1) / 0.97917) 4.7%,
+          rgb(var(--gray1) / 0.95603) 8.9%,
+          rgb(var(--gray1) / 0.9296) 12.8%,
+          rgb(var(--gray1) / 0.898904) 16.56%,
+          rgb(var(--gray1) / 0.862963) 20.37%,
+          rgb(var(--gray1) / 0.8208) 24.4%,
+          rgb(var(--gray1) / 0.771437) 28.83%,
+          rgb(var(--gray1) / 0.713896) 33.84%,
+          rgb(var(--gray1) / 0.6472) 39.6%,
+          rgb(var(--gray1) / 0.57037) 46.3%,
+          rgb(var(--gray1) / 0.48243) 54.1%,
+          rgb(var(--gray1) / 0.3824) 63.2%,
+          rgb(var(--gray1) / 0.269304) 73.76%,
+          rgb(var(--gray1) / 0.142163) 85.97%,
+          rgb(var(--gray1) / 0) 100%
+        );
+      }
+
+      .overlay-bottom {
+        background: linear-gradient(
+          180deg,
+          rgb(var(--gray1)) 0%,
+          rgb(var(--gray1) / 0.97917) 4.7%,
+          rgb(var(--gray1) / 0.95603) 8.9%,
+          rgb(var(--gray1) / 0.9296) 12.8%,
+          rgb(var(--gray1) / 0.898904) 16.56%,
+          rgb(var(--gray1) / 0.862963) 20.37%,
+          rgb(var(--gray1) / 0.8208) 24.4%,
+          rgb(var(--gray1) / 0.771437) 28.83%,
+          rgb(var(--gray1) / 0.713896) 33.84%,
+          rgb(var(--gray1) / 0.6472) 39.6%,
+          rgb(var(--gray1) / 0.57037) 46.3%,
+          rgb(var(--gray1) / 0.48243) 54.1%,
+          rgb(var(--gray1) / 0.3824) 63.2%,
+          rgb(var(--gray1) / 0.269304) 73.76%,
+          rgb(var(--gray1) / 0.142163) 85.97%,
+          rgb(var(--gray1) / 0) 100%
+        );
+      }
+    `,
+  ],
+})
+export class HomeComponent implements OnInit {
+  constructor() {}
+
+  ngOnInit(): void {}
+}
