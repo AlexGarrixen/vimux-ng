@@ -1,0 +1,37 @@
+<app-layout>
+  <div class="container mt-10 pb-10">
+    <section class="flex justify-between items-center mb-6">
+      <h2 class="text-3xl text-contrast-textH">Explorar calalogo</h2>
+      <filters-button></filters-button>
+    </section>
+
+    <ng-container *ngIf="isLoading && !isFirstLoad">
+      <catalog-skeleton></catalog-skeleton>
+    </ng-container>
+
+    <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+      <ng-container *ngFor="let item of data">
+        <li>
+          <serie-card
+            aspectRatio="thumbnail"
+            [img]="item.thumbnail"
+            [title]="item.name"
+            [body]="item.genders.join(', ')"
+          ></serie-card>
+        </li>
+      </ng-container>
+    </ul>
+
+    <div
+      class="h-[1px]"
+      intersectionObserver
+      (onIntersect)="onInstersect($event)"
+    ></div>
+
+    <ng-container *ngIf="isLoading && isFirstLoad">
+      <div class="flex justify-center mt-8">
+        <spinner></spinner>
+      </div>
+    </ng-container>
+  </div>
+</app-layout>

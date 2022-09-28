@@ -1,0 +1,35 @@
+<label
+  role="radio"
+  [tabindex]="checked ? 0 : -1"
+  [attr.aria-checked]="checked"
+  class="inline-flex cursor-pointer"
+  [ngClass]="{ 'text-black': checked, 'text-transparent': !checked }"
+>
+  <input
+    type="checkbox"
+    class="hidden absolute"
+    [checked]="checked"
+    (change)="onChange($event)"
+    [value]="value"
+  />
+  <span
+    class="
+      rounded-full
+      radio-control
+      bg-transparent
+      inline-flex
+      items-center
+      justify-center
+      h-4
+      w-4
+      border-[2px] border-gray-6
+      relative
+    "
+    [attr.data-checked]="checked"
+    [ngClass]="{ 'bg-brand border-brand': checked }"
+  >
+    <span
+      class="radio-indicator bg-current absolute w-1/2 h-1/2 rounded-full"
+    ></span>
+  </span>
+</label>

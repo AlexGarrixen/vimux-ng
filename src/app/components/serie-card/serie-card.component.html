@@ -11,7 +11,8 @@
     class="bg-gray-3 rounded-md overflow-hidden"
     [ngClass]="{
       'aspect-square': aspectRatio === 'square',
-      'aspect-video': aspectRatio === 'rectangle'
+      'aspect-video': aspectRatio === 'rectangle',
+      'aspect-[2/3]': aspectRatio === 'thumbnail'
     }"
   >
     <img class="h-full w-full bg-gray-3 object-cover" [src]="img" />

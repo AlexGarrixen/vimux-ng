@@ -5,7 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 
-import { seriesApi, RecentlyResponse } from '@app/store/services';
+import { seriesApi, SeriesResponse } from '@app/store/services';
 import { Serie } from '@app/models/serie.model';
 
 const { useGetRecentlyQuery } = seriesApi;
@@ -20,7 +20,7 @@ export class RecentlyUploadedComponent implements OnInit {
   constructor(private cdr: ChangeDetectorRef) {}
 
   query$ = useGetRecentlyQuery(undefined);
-  data: RecentlyResponse | undefined = undefined;
+  data: SeriesResponse | undefined = undefined;
   isLoading: boolean = true;
   isError: boolean | undefined = undefined;
 

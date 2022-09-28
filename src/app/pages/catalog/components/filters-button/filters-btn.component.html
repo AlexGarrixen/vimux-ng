@@ -1,0 +1,80 @@
+<button
+  class="btn btn-outline btn-sm"
+  [popperPlacement]="popperPlacement"
+  [popper]="menu"
+  popperApplyArrowClass="text-gray-2"
+  type="button"
+>
+  Filtros
+</button>
+
+<popper-content #menu>
+  <div
+    role="dialog"
+    class="
+      grid
+      gap-3
+      bg-gray-2
+      min-w-max
+      p-3
+      rounded-md
+      max-h-[300px]
+      overflow-y-auto
+    "
+  >
+    <section>
+      <h2>Genero</h2>
+      <ul class="grid gap-2 mt-1">
+        <ng-container *ngFor="let item of genders">
+          <li>
+            <label class="text-sm flex items-center">
+              <radio
+                [value]="createRadioValue('gender', item.name)"
+                [checked]="isActivatedParam('gender', item.name)"
+                (onChecked)="onChecked($event)"
+                class="mr-2"
+              ></radio>
+              {{ item.isAll ? "Todos" : item.name }}
+            </label>
+          </li>
+        </ng-container>
+      </ul>
+    </section>
+    <section>
+      <h2>Temporada</h2>
+      <ul class="grid gap-2 mt-1">
+        <ng-container *ngFor="let item of seasons">
+          <li>
+            <label class="text-sm flex items-center">
+              <radio
+                [value]="createRadioValue('season', item.name)"
+                [checked]="isActivatedParam('season', item.name)"
+                (onChecked)="onChecked($event)"
+                class="mr-2"
+              ></radio>
+              {{ item.isAll ? "Todos" : item.name }}
+            </label>
+          </li>
+        </ng-container>
+      </ul>
+    </section>
+    <section>
+      <h2>Formato</h2>
+      <ul class="grid gap-2 mt-1">
+        <ng-container *ngFor="let item of formats">
+          <li>
+            <label class="text-sm flex items-center">
+              <radio
+                [value]="createRadioValue('type', item.name)"
+                [checked]="isActivatedParam('type', item.name)"
+                (onChecked)="onChecked($event)"
+                class="mr-2"
+              ></radio>
+              {{ item.isAll ? "Todos" : item.name }}
+            </label>
+          </li>
+        </ng-container>
+      </ul>
+    </section>
+  </div>
+</popper-content>

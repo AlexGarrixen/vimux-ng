@@ -9,6 +9,11 @@ const routes: Routes = [
       import('@app/pages/home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: 'catalog',
+    loadChildren: () =>
+      import('@app/pages/catalog/catalog.module').then((m) => m.CatalogModule),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

@@ -2,3 +2,13 @@
 @import "~@fontsource/sora/700.css";
 @import "swiper/scss";
 @import "./tailwind/main";
+
+[role="popper"] {
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+[data-popper-arrow]::before {
+  background-color: currentColor !important;
+}
