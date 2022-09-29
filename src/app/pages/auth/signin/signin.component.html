@@ -1,0 +1,55 @@
+<div
+  class="
+    min-h-screen
+    flex flex-col
+    justify-center
+    bg-[url('https://vimux.vercel.app/images/bg-waves.png')] bg-cover bg-center
+    py-4
+  "
+>
+  <div class="container !max-w-screen-sm">
+    <div
+      *ngIf="isError"
+      class="bg-red-1 text-red-11 border-red-7 border-[1px] rounded-md p-6 mb-4"
+    >
+      <h3>Usuario o contraseña incorrectas</h3>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="text-3xl text-contrast-textHi">Iniciar Sesion</h2>
+      <p class="text-contrast-textLow mt-1">
+        ¿No tienes una cuenta? <a class="text-brand">Registrate aqui. </a>
+      </p>
+    </div>
+
+    <form
+      class="flex flex-col"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit($event)"
+    >
+      <input
+        type="text"
+        class="input"
+        placeholder="Tu Correo"
+        formControlName="email"
+      />
+      <span class="text-sm text-red mt-1" *ngIf="getControlError('email')">
+        {{ getControlError("email") }}
+      </span>
+
+      <input
+        type="password"
+        class="input mt-6"
+        placeholder="Tu contraseña"
+        formControlName="password"
+      />
+      <span class="text-sm text-red mt-1" *ngIf="getControlError('password')">
+        {{ getControlError("password") }}
+      </span>
+
+      <button type="submit" [disabled]="isLoading" class="btn btn-brand mt-6">
+        Continuar
+      </button>
+    </form>
+  </div>
+</div>

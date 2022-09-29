@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SessionService, AuthSession } from '@app/services/session.service';
+
 interface Link {
   label: string;
   href: string;
@@ -10,7 +12,9 @@ interface Link {
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor(private sessionService: SessionService) {}
+
+  session!: AuthSession;
 
   links: Link[] = [
     {
@@ -23,5 +27,9 @@ export class HeaderComponent implements OnInit {
     },
   ];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.sessionService.session$.subscribe((data) => {
+      this.session = data;
+    });
+  }
 }

@@ -1,0 +1,45 @@
+<avatar
+  [name]="label"
+  [popper]="menu"
+  [popperPlacement]="popperPlacement"
+  popperApplyArrowClass="text-gray-3"
+></avatar>
+
+<popper-content #menu>
+  <ul role="dialog" class="p-3 bg-gray-3 w-max rounded-md z-10">
+    <li>
+      <a
+        class="
+          text-sm
+          rounded-sm
+          h-7
+          w-full
+          px-3
+          flex
+          items-center
+          hover:bg-brand
+        "
+        routerLink="/user/queued"
+        >Mi Lista</a
+      >
+    </li>
+    <li>
+      <button
+        class="
+          text-sm
+          rounded-sm
+          h-7
+          w-full
+          px-3
+          flex
+          items-center
+          hover:bg-brand
+        "
+        type="button"
+        (click)="logout()"
+      >
+        Salir
+      </button>
+    </li>
+  </ul>
+</popper-content>

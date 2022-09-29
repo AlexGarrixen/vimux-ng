@@ -1,4 +1,4 @@
-<header class="flex justify-between items-center px-6 h-16">
+<header class="flex justify-between items-center px-6 h-16 relative z-10">
   <svg-logo class="text-[40px]"></svg-logo>
   <span class="inline-block h-8 w-[1px] bg-gray-3 mx-6"></span>
   <nav class="flex flex-1 justify-between">
@@ -15,8 +15,12 @@
       </ng-container>
     </ul>
     <div>
-      <button class="btn btn-outline mr-3">Ingresar</button>
-      <button class="btn">Registrar</button>
+      <ng-container *ngIf="!session; else authBlock">
+        <a class="btn btn-outline mr-3" routerLink="/auth/signin"> Ingresar </a>
+      </ng-container>
+      <ng-template #authBlock>
+        <avatar-dropdown [label]="session?.username ?? ''"></avatar-dropdown>
+      </ng-template>
     </div>
   </nav>
 </header>
