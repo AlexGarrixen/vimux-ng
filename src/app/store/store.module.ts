@@ -10,6 +10,7 @@ import {
   episodesApi,
   filtersApi,
   authApi,
+  userApi,
 } from './services';
 
 export type RootState = {
@@ -18,6 +19,7 @@ export type RootState = {
   [directoryApi.reducerPath]: ReturnType<typeof directoryApi.reducer>;
   [filtersApi.reducerPath]: ReturnType<typeof filtersApi.reducer>;
   [authApi.reducerPath]: ReturnType<typeof authApi.reducer>;
+  [userApi.reducerPath]: ReturnType<typeof userApi.reducer>;
 };
 
 export const reducers: ActionReducerMap<RootState> = {
@@ -26,6 +28,7 @@ export const reducers: ActionReducerMap<RootState> = {
   [episodesApi.reducerPath]: episodesApi.reducer,
   [filtersApi.reducerPath]: filtersApi.reducer,
   [authApi.reducerPath]: authApi.reducer,
+  [userApi.reducerPath]: userApi.reducer,
 };
 
 @NgModule({
@@ -37,6 +40,7 @@ export const reducers: ActionReducerMap<RootState> = {
         directoryApi.metareducer,
         filtersApi.metareducer,
         authApi.metareducer,
+        userApi.metareducer,
       ],
     }),
     StoreRtkQueryModule.forRoot({ setupListeners: true }),

@@ -12,6 +12,10 @@ export interface SeriesResponse {
   count: number;
 }
 
+interface ContainsQueuedResponse {
+  items: boolean[];
+}
+
 export const seriesApi = createApi({
   reducerPath: 'seriesApi',
   baseQuery,
@@ -38,7 +42,7 @@ export const directoryApi = createApi({
   reducerPath: 'directoryApi',
   baseQuery,
   refetchOnFocus: false,
-  tagTypes: ['Catalog'],
+  tagTypes: ['Catalog', 'UserContains'],
 
   endpoints: (build) => ({
     getDirectory: build.query<SeriesResponse, { page: number; type?: string }>({
@@ -54,6 +58,13 @@ export const directoryApi = createApi({
         },
       }),
       providesTags: ['Catalog'],
+    }),
+    getContainsInQueued: build.query<ContainsQueuedResponse, string[]>({
+      query: (ids) => ({
+        url: '/me/queued/contains',
+        params: { ids: ids.join(',') },
+        sendToken: true,
+      }),
     }),
   }),
 });

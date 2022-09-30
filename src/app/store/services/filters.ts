@@ -15,15 +15,15 @@ export const filtersApi = createApi({
 
   endpoints: (build) => ({
     getSeasons: build.query<FilterResponse, void>({
-      query: () => '/seasons',
+      query: () => ({ url: '/seasons' }),
       providesTags: ['Seasons'],
     }),
     getGenders: build.query<FilterResponse, void>({
-      query: () => '/genders',
+      query: () => ({ url: '/genders' }),
       providesTags: ['Genders'],
     }),
     getFormats: build.query<FilterResponse, void>({
-      query: () => '/types',
+      query: () => ({ url: '/types' }),
       providesTags: ['Formats'],
     }),
   }),

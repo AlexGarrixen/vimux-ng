@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'serie-card',
@@ -11,4 +11,13 @@ export class SerieCardComponent {
   @Input() title!: string;
   @Input() body!: string;
   @Input() aspectRatio: 'square' | 'rectangle' | 'thumbnail' = 'square';
+  @Input() showBookmark: boolean = false;
+  @Input() activeBookmark: boolean = false;
+  @Input() loadingBookmark: boolean = false;
+  @Output() onClickBookmark = new EventEmitter<Event>();
+
+  onBookmark(ev: Event) {
+    ev.preventDefault();
+    this.onClickBookmark.emit(ev);
+  }
 }

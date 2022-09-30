@@ -8,7 +8,7 @@
   "
 >
   <div
-    class="bg-gray-3 rounded-md overflow-hidden"
+    class="bg-gray-3 rounded-md overflow-hidden relative"
     [ngClass]="{
       'aspect-square': aspectRatio === 'square',
       'aspect-video': aspectRatio === 'rectangle',
@@ -16,9 +16,38 @@
     }"
   >
     <img class="h-full w-full bg-gray-3 object-cover" [src]="img" />
+
+    <button
+      *ngIf="showBookmark"
+      (click)="onBookmark($event)"
+      [disabled]="loadingBookmark"
+      class="
+        absolute
+        right-3
+        top-3
+        shadow-md
+        w-8
+        h-8
+        rounded-full
+        bg-white
+        inline-flex
+        items-center
+        justify-center
+      "
+      [ngClass]="{ 'opacity-70 cursor-not-allowed': loadingBookmark }"
+    >
+      <i
+        class="icon"
+        [ngClass]="{
+          'icon-bookmark text-brand': activeBookmark,
+          'icon-bookmark-outline text-gray-1': !activeBookmark
+        }"
+      ></i>
+    </button>
   </div>
   <div class="p-4">
     <h3 class="text-base text-contrast-textHi line-clamp-1">{{ title }}</h3>
     <p class="text-sm text-contrast-textLow line-clamp-1">{{ body }}</p>
+    <ng-content></ng-content>
   </div>
 </article>

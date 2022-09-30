@@ -1,0 +1,14 @@
+<serie-card
+  aspectRatio="rectangle"
+  [img]="img"
+  [title]="episodeName"
+  [body]="serieName"
+>
+  <div class="flex justify-between items-center mt-4">
+    <p class="text-sm text-contrast-textLow">Episodio {{ order }}</p>
+    <button class="btn btn-sm" (click)="onTrash()" [disabled]="isDeleting">
+      <i class="icon icon-trash-outline mr-1"></i>
+      borrar
+    </button>
+  </div>
+</serie-card>

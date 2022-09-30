@@ -1,3 +1,28 @@
 <app-layout>
-  <section>pagina queued</section>
+  <div class="container mt-10">
+    <ng-container *ngIf="isError">
+      <h2>Algo salio mal!</h2>
+    </ng-container>
+
+    <ng-container *ngIf="isLoading; else doneBlock">
+      <queued-skeleton></queued-skeleton>
+    </ng-container>
+
+    <ng-template #doneBlock>
+      <h2 class="text-2xl mb-4">Mi Lista</h2>
+      <ul class="grid grid-cols-4 gap-6">
+        <ng-container *ngFor="let item of data">
+          <li>
+            <queued-item
+              [serieId]="item.serie_propietary._id"
+              [img]="item.current_episode.thumbnail"
+              [episodeName]="item.current_episode.name"
+              [serieName]="item.serie_propietary.name"
+              [order]="item.current_episode.order"
+            ></queued-item>
+          </li>
+        </ng-container>
+      </ul>
+    </ng-template>
+  </div>
 </app-layout>

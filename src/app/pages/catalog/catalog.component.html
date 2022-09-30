@@ -10,14 +10,18 @@
     </ng-container>
 
     <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-      <ng-container *ngFor="let item of data">
+      <ng-container *ngFor="let item of data; let pos = index">
         <li>
-          <serie-card
-            aspectRatio="thumbnail"
+          <catalog-item
+            [id]="item._id"
+            [index]="pos"
             [img]="item.thumbnail"
             [title]="item.name"
             [body]="item.genders.join(', ')"
-          ></serie-card>
+            [inQueued]="containsInQueued[pos]"
+            (onAddedInQueued)="onAddedInQueue($event)"
+            (onRemovedInQueued)="onRemovedInQueue($event)"
+          ></catalog-item>
         </li>
       </ng-container>
     </ul>

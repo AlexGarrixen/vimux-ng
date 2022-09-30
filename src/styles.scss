@@ -1,12 +1,14 @@
 @import "~@fontsource/sora/400.css";
 @import "~@fontsource/sora/700.css";
 @import "swiper/scss";
+@import "./icons/style.css";
 @import "./tailwind/main";
 
 [role="popper"] {
   padding: 0 !important;
   border: none !important;
   box-shadow: none !important;
+  z-index: 10;
 }
 
 [data-popper-arrow]::before {

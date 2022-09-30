@@ -29,6 +29,10 @@ export class SessionService {
     this.session.next(null);
   }
 
+  getToken() {
+    return localStorage.getItem(TOKEN_KEY);
+  }
+
   private getSession(): AuthSession {
     const value = localStorage.getItem(USER_KEY);
     return value ? JSON.parse(value) : null;
