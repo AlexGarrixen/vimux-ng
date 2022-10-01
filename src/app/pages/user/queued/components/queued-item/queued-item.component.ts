@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { userApi } from '@app/store/services';
 
-const { useRemoveSerieQueuedMutation } = userApi;
+const { useRemoveInQueuedMutation } = userApi;
 
 @Component({
   selector: 'queued-item',
@@ -19,7 +19,7 @@ export class QueuedItemComponent implements OnInit {
 
   isDeleting: boolean = false;
 
-  query = useRemoveSerieQueuedMutation();
+  query = useRemoveInQueuedMutation();
 
   onTrash() {
     this.query.dispatch(this.serieId);
