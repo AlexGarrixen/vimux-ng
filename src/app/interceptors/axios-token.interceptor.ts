@@ -44,9 +44,9 @@ export class AxiosTokenInterceptor {
     const statusCode = error.response?.status;
     const requestUrl = error.config.url;
 
-    if (statusCode === 401 && requestUrl !== '/auth/signin') {
+    if (statusCode === 401 && requestUrl !== '/auth/login') {
       this.session.remove();
-      window.location.href = '/auth/signin';
+      window.location.href = '/auth/login';
     }
   }
 }
