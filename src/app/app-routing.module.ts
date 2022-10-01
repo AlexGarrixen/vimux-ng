@@ -27,6 +27,11 @@ const routes: Routes = [
     canActivate: [SessionGuard],
   },
   {
+    path: 'serie/:id',
+    loadChildren: () =>
+      import('@app/pages/serie/serie.module').then((m) => m.SerieModule),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

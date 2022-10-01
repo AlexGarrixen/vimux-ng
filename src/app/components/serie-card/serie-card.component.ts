@@ -17,6 +17,7 @@ export class SerieCardComponent {
   @Output() onClickBookmark = new EventEmitter<Event>();
 
   onBookmark(ev: Event) {
+    ev.stopPropagation();
     ev.preventDefault();
     this.onClickBookmark.emit(ev);
   }

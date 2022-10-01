@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { userApi } from '@app/store/services';
+import { userApi, seriesApi } from '@app/store/services';
 
 const { useRemoveInQueuedMutation } = userApi;
-
 @Component({
   selector: 'queued-item',
   templateUrl: './queued-item.component.html',

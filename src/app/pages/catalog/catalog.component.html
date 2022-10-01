@@ -12,16 +12,18 @@
     <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
       <ng-container *ngFor="let item of data; let pos = index">
         <li>
-          <catalog-item
-            [id]="item._id"
-            [index]="pos"
-            [img]="item.thumbnail"
-            [title]="item.name"
-            [body]="item.genders.join(', ')"
-            [inQueued]="containsInQueued[pos]"
-            (onAddedInQueued)="onAddedInQueue($event)"
-            (onRemovedInQueued)="onRemovedInQueue($event)"
-          ></catalog-item>
+          <a [routerLink]="['/serie', item._id]">
+            <catalog-item
+              [id]="item._id"
+              [index]="pos"
+              [img]="item.thumbnail"
+              [title]="item.name"
+              [body]="item.genders.join(', ')"
+              [inQueued]="containsInQueued[pos]"
+              (onAddedInQueued)="onAddedInQueue($event)"
+              (onRemovedInQueued)="onRemovedInQueue($event)"
+            ></catalog-item>
+          </a>
         </li>
       </ng-container>
     </ul>

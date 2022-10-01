@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { CatalogRoutingModule } from './catalog-routing.module';
 import { SpinnerModule } from '@app/ui';
@@ -19,6 +20,7 @@ import { IntersectionObserverDirective } from '@app/directives/intersection-obse
   ],
   imports: [
     CommonModule,
+    RouterModule,
     CatalogRoutingModule,
     LayoutModule,
     FiltersBtnModule,

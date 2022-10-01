@@ -3,6 +3,7 @@ import { Params } from '@angular/router';
 
 import { baseQuery } from './baseQuery';
 import { Serie } from '@app/models/serie.model';
+import { Episode } from '@app/models/episode.model';
 
 export interface SeriesResponse {
   items: Serie[];
@@ -16,11 +17,15 @@ interface ContainsQueuedResponse {
   items: boolean[];
 }
 
+export interface EpisodesResponse {
+  items: (Omit<Episode, 'serie_id'> & { serie_id: string })[];
+}
+
 export const seriesApi = createApi({
   reducerPath: 'seriesApi',
   baseQuery,
   refetchOnFocus: false,
-  tagTypes: ['Recently', 'Catalog'],
+  tagTypes: ['Recently', 'SerieEps', 'SerieDetails'],
 
   endpoints: (build) => ({
     getRecently: build.query<SeriesResponse, void>({
@@ -35,6 +40,18 @@ export const seriesApi = createApi({
       }),
       providesTags: ['Recently'],
     }),
+    getDetails: build.query<Serie, string>({
+      query: (id) => ({
+        url: `/series/${id}`,
+      }),
+      providesTags: ['SerieDetails'],
+    }),
+    getEpisodes: build.query<EpisodesResponse, string>({
+      query: (id) => ({
+        url: `/series/${id}/episodes`,
+      }),
+      providesTags: ['SerieEps'],
+    }),
   }),
 });
 
@@ -42,7 +59,7 @@ export const directoryApi = createApi({
   reducerPath: 'directoryApi',
   baseQuery,
   refetchOnFocus: false,
-  tagTypes: ['Catalog', 'UserContains'],
+  tagTypes: ['Catalog', 'CatalogContains'],
 
   endpoints: (build) => ({
     getDirectory: build.query<SeriesResponse, { page: number; type?: string }>({
@@ -65,6 +82,7 @@ export const directoryApi = createApi({
         params: { ids: ids.join(',') },
         sendToken: true,
       }),
+      providesTags: ['CatalogContains'],
     }),
   }),
 });
